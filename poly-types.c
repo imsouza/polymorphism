@@ -1,26 +1,33 @@
+/**
+ * @file poly-types.c
+ * @brief A simple program that simulates the types of C language polymorphisms
+ * @author Mateus Almeida
+ * @version 1.0
+ */
+
 #include <stdio.h>
 #include <stdbool.h>
 #include "macros.h"
 
-/* 
+/** 
  * Defines a new structural type that contains two integers as fields. 
  * If a macro is instantiated with a parameter other than T, 
  * we will have a pair of elements of a different type
  */
 
-// Parametric structure
+//! Parametric structure
 typedef struct {
   int first;
   int second;
 } pair_int;
 
 
-/*
+/**
  * in this type, the address of any structure must be 
  * the same as the address of its first member
  */
 
-// Inclusion structures
+//! Inclusion structures
 typedef struct {
   const char *field_parent;
 } parent;
@@ -44,7 +51,11 @@ bool is_positive (int x) {
 }
 
 
-// For each pointer (child *) there will be a pointer to an instance (parent)
+/** 
+ * For each pointer (child *) there will be a 
+ * pointer to an instance (parent)
+ * @param this: reference to the structure
+ */
 void display_inclusion (parent * this) {
   printf("%s\n", this->field_parent);
 }
